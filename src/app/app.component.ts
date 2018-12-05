@@ -4,12 +4,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { TabsPage } from '../pages/tabs/tab';
+import { LibraryPage } from '../pages/library/library';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   rootPage:any = TabsPage;
+  favoritesPage = FavoritesPage;
+  libraryPage = LibraryPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

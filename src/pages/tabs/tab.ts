@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FavoritesPage } from "../favorites/favorites";
 import { LibraryPage } from "../library/library";
 
@@ -11,7 +11,14 @@ import { LibraryPage } from "../library/library";
     </ion-tabs>
   `
 })
-export class TabsPage{
+export class TabsPage implements OnInit{
   favoritesPage = FavoritesPage;
   libraryPage = LibraryPage;
+    ngOnInit() {
+      console.log(1231231312);
+      console.log(history);
+    }
+    ionViewDidEnter() {
+      console.log('ionViewDidEnter');
+    }
 }
