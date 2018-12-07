@@ -1,25 +1,25 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the QuotePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Component, OnInit } from '@angular/core';
+import { IonicPage, NavParams, NavController, ViewController } from 'ionic-angular';
+import { Quote } from '../../data/quote.interface';
+import { quoteService } from '../../service/quotes';
 
 @IonicPage()
 @Component({
   selector: 'page-quote',
   templateUrl: 'quote.html',
 })
-export class QuotePage {
+export class QuotePage implements OnInit{
+    quote: Quote;
+    constructor(private navParams: NavParams, private navCtrl: NavController, private view: ViewController, private quoteService: quoteService){}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad QuotePage');
-  }
-
+    ngOnInit(){
+        this.quote = this.navParams.data;
+    }
+    close(){
+        this.view.dismiss(true);
+    }
+    notFavorite(){
+        this.quoteService.removeQuoteFromFavorites(this.quote);
+        this.close();
+    }
 }

@@ -8,16 +8,17 @@
 
 
 <ion-content padding>
-    <ion-card *ngFor="let quote of quotes.quotes">
+    <ion-card *ngFor="let quote of quotes.quotes; let i = index">
         <ion-card-header text-center>
-            #{{quote.id}}
+            #{{ i + 1 }}
         </ion-card-header>
         <ion-card-content>
             <p>{{quote.text}}</p>
             <p class="author">{{quote.person}}</p>
         </ion-card-content>
         <ion-buttons end>
-            <button ion-button clear (click)="goToQuote()">Favorite</button>
+            <button ion-button clear (click)="onToFavorites(quote)" *ngIf="!isFavorite(quote)">Favorite</button>
+            <button ion-button clear color="danger" (click)="notFavorites(quote)" *ngIf="isFavorite(quote)">Unfavorite</button>
         </ion-buttons>
     </ion-card>
 </ion-content>

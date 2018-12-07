@@ -1,10 +1,11 @@
 <ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
-        </button>
-    </ion-navbar>
+    <ion-navbar> <ion-title>Favorites</ion-title> </ion-navbar>
 </ion-header>
 <ion-content padding>
-
+    <ion-list>
+        <ion-item *ngFor="let quote of FavoritesQuote" (click)="goToQuote(quote)">
+            <h2>{{ quote.person }}</h2>
+            <p>{{ quote.text }}</p>
+        </ion-item>
+    </ion-list>
 </ion-content>
