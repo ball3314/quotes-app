@@ -14,7 +14,7 @@ export class LibraryPage {
   quote = QuotesPage;
 
   constructor(public navCtrl: NavController) {
-    this.quoteCollection = quotes
+    this.quoteCollection = quotes;
   }
 
   ionViewDidLoad() {
